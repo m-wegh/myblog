@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if category_posts %}
+
+<h1>Category: {{ cats }}</h1>
+
+<ul>
+{% for post in category_posts %}
+        <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}  </a> - 
+            {{ post.author.first_name }} 
+            {{ post.author.last_name }} - 
+            {{ post.posting_date }}
+            <br>
+        {{ post.body|slice:":150"|safe }}</li>
+        <br>
+{% endfor %}
+</ul>
+
+{% else %}
+
+<h6>SORRY, THIS PAGE DOES NOT EXIST</h6>
+
+{% endif %}
+{% endblock %}

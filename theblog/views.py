@@ -4,15 +4,11 @@ from .models import Post, Category
 from .forms import PostForm
 from django.urls import reverse_lazy
 
-# Create your views here.
-#def home(request):
-#    return render(request, 'home.html', {})
 
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     ordering = ['-posting_date']
-
 
 class ArticleDetailView(DetailView):
     model = Post
@@ -39,3 +35,7 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html', {'cats':cats.title(), 'category_posts':category_posts})

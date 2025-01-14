@@ -6,10 +6,10 @@
 <hr>
 <ul>
 {% for post in object_list  %}
-    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}  </a> - 
+    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - 
         {{ post.author.first_name }} 
         {{ post.author.last_name }} - 
-        {{ post.category }} - 
+        <a href="{% url 'category' post.category %}">{{ post.category }}</a> - 
         {{ post.posting_date }}
         <br>
     {{ post.body|slice:":150"|safe }}</li>
