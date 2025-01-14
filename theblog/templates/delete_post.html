@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <h1>Delete Post</h1>
 <hr>
 <br>
@@ -20,4 +22,11 @@
         
     </form>
 </div>
+
+{% else %}
+
+<h1> YOU CAN'T BE HERE! </h1>
+
+{% endif %}
+
 {% endblock %}

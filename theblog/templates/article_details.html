@@ -11,8 +11,16 @@
     {{ post.posting_date }}
 </small> 
 <br>
+
+{% if user.is_authenticated %}
 <small><a href="{% url 'update_post' post.pk %}">Edit</a></small> - 
 <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
+{% else %}
+
+<h1> YOU CAN'T BE HERE! </h1>
+
+{% endif %}
+
 <hr>
 <br/>
 {{post.body}}

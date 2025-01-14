@@ -9,7 +9,7 @@
     <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }} </a> - {{ post.author.first_name }} 
         {{ post.author.last_name }} - {{ post.posting_date }}
         <br>
-    {{ post.body }}</li>
+    {{ post.body|slice:":150" }}</li>
     <br>
 {% endfor %}
 </ul>
