@@ -10,7 +10,7 @@ class Category(models.Model):
     
         def get_absolute_url(self):
         #return reverse('article-detail', args=(str(self.id)))
-            return reverse('home')
+            return reverse('index')
     
 
 
@@ -27,5 +27,5 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         #return reverse('article-detail', args=(str(self.id)))
-        return reverse('home')
+        return reverse('index')
     

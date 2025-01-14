@@ -5,7 +5,7 @@ from .forms import PostForm
 from django.urls import reverse_lazy
 
 
-class HomeView(ListView):
+class IndexView(ListView):
     model = Post
     template_name = 'index.html'
     ordering = ['-posting_date']
@@ -34,7 +34,7 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('index')
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats)
